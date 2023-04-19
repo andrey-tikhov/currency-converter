@@ -1,0 +1,9 @@
+defaults:
+  default_cb: "russia"
+
+russia_cb_config:
+  api_url: "https://cbr.ru/scripts/XML_daily.asp"
+  timezone: "Europe/Moscow"
+thailand_cb_config:
+  api_url: "https://www.bot.or.th/APP/RSS/fxrate-all.xml"
+  timezone: "Asia/Bangkok"
