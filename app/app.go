@@ -7,6 +7,7 @@ import (
 	"my_go/gateway/russia"
 	"my_go/gateway/thailand"
 	"my_go/handler"
+	"my_go/logger"
 	"my_go/repository"
 	"net/http"
 )
@@ -16,6 +17,7 @@ var Module = fx.Options(
 	config.Module,
 	repository.Module,
 	controller.Module,
+	logger.Module,
 	fx.Provide(russia.New),
 	fx.Provide(thailand.New),
 	fx.Invoke(StartAndListen),
