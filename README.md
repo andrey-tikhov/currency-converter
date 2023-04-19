@@ -5,10 +5,10 @@ compile guaranteed for go 1.20.3
     git clone git@github.com:andrey-tikhov/currency-converter.git
     go run main.go
 Accepts request on the following endpoints on http://localhost:8000 
- - [/convert](#/convert-endpoint) allows to convert amount of one currency to another currency based on country central bank rate provided
- - [/get_exchange_rates](#/get_exchange_rates-endpoint) allows to load all central bank rates for provided country
+ - [/convert](#convert-endpoint) allows to convert amount of one currency to another currency based on country central bank rate provided
+ - [/get_exchange_rates](#get_exchange_rates-endpoint) allows to load all central bank rates for provided country
 
-### /convert endpoint
+### convert endpoint
 Accepts the following requests.
 If country is omitted the default central bank will be applied (defined in config/base.yaml defaults)
 ```
@@ -31,7 +31,7 @@ Connection: close
 {"amount":3523.6376}
 ```
 
-### /get_exchange_rates endpoint
+### get_exchange_rates endpoint
 Accepts the following requests
 ```
 POST /get_exchange_rates HTTP/1.1
@@ -85,7 +85,9 @@ type cbr struct {
 ```
 As constructors are used in lazy manner once created the repository implementation is reused and cached Central Bank rates are used in order to prevent unlimited requests to the central bank's endpoints.
 This is tested in the integration test.
+
 Cache reloading is protected by .Lock() as well as loading data from cache is protected by .RLock() to ensure no data races are happening while http handlers are executed in independet coroutines.
+
 Cache reloading happens with the following logic (simplified, detailed logic is available in the [repository implementation](https://github.com/andrey-tikhov/currency-converter/blob/main/repository/cbr_repository.go#L126)).
 1. Incoming request is enriched with current date in the time zone of central bank where data is requested.
 2. Repository loads the cached data for the rates. If date loaded in the cache doesn't equal the date in the incoming request we reload the cache.
