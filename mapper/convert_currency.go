@@ -47,7 +47,7 @@ func CBRRatesAndGetExchangeRateRequestToGetExchangeRateResponse(
 	}
 	baseRate, ok := r.Rates[req.BaseCurrencyID]
 	if !ok {
-		return nil, fmt.Errorf("baseRate, currency %s not supported by CB %s", req.TargetCurrencyID, req.Country)
+		return nil, fmt.Errorf("baseRate, currency %s not supported by CB %s", req.BaseCurrencyID, req.Country)
 	}
 
 	newRawRate := float64(targetRate.Nominal) / targetRate.RateTargetToBase *
