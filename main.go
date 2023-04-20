@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"go.uber.org/fx"
 	"my_go/app"
 )
@@ -13,6 +12,5 @@ func opts() fx.Option {
 }
 
 func main() {
-	fmt.Println("tst")
 	fx.New(opts()).Run()
 }

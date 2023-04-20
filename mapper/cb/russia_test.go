@@ -56,20 +56,20 @@ func TestRussiaCBRResponseToRates(t *testing.T) {
 			want: map[string]entity.Rate{
 				"AUD": {
 					Nominal:          1,
-					BaseCurrency:     "RUR",
+					BaseCurrency:     "RUB",
 					TargetCurrency:   "AUD",
 					RateTargetToBase: 54.8131,
 				},
 				"AZN": {
 					Nominal:          10,
-					BaseCurrency:     "RUR",
+					BaseCurrency:     "RUB",
 					TargetCurrency:   "AZN",
 					RateTargetToBase: 48.0164,
 				},
-				"RUR": {
+				"RUB": {
 					Nominal:          1,
-					BaseCurrency:     "RUR",
-					TargetCurrency:   "RUR",
+					BaseCurrency:     "RUB",
+					TargetCurrency:   "RUB",
 					RateTargetToBase: 1,
 				},
 			},
@@ -91,14 +91,14 @@ func TestRussiaCBRResponseToRates(t *testing.T) {
 			want: map[string]entity.Rate{
 				"AZN": {
 					Nominal:          10,
-					BaseCurrency:     "RUR",
+					BaseCurrency:     "RUB",
 					TargetCurrency:   "AZN",
 					RateTargetToBase: 48.0164,
 				},
-				"RUR": {
+				"RUB": {
 					Nominal:          1,
-					BaseCurrency:     "RUR",
-					TargetCurrency:   "RUR",
+					BaseCurrency:     "RUB",
+					TargetCurrency:   "RUB",
 					RateTargetToBase: 1,
 				},
 			},

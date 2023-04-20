@@ -47,13 +47,13 @@ func Test_controller_GetCBRates(t *testing.T) {
 						Rates: map[string]entity.Rate{
 							"USD": {
 								Nominal:          100,
-								BaseCurrency:     "RUR",
+								BaseCurrency:     "RUB",
 								TargetCurrency:   "USD",
 								RateTargetToBase: 123.56,
 							},
 							"JPY": {
 								Nominal:          10,
-								BaseCurrency:     "RUR",
+								BaseCurrency:     "RUB",
 								TargetCurrency:   "JPY",
 								RateTargetToBase: 987.65,
 							},
@@ -66,13 +66,13 @@ func Test_controller_GetCBRates(t *testing.T) {
 				Rates: map[string]entity.Rate{
 					"USD": {
 						Nominal:          100,
-						BaseCurrency:     "RUR",
+						BaseCurrency:     "RUB",
 						TargetCurrency:   "USD",
 						RateTargetToBase: 123.56,
 					},
 					"JPY": {
 						Nominal:          10,
-						BaseCurrency:     "RUR",
+						BaseCurrency:     "RUB",
 						TargetCurrency:   "JPY",
 						RateTargetToBase: 987.65,
 					},

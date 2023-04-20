@@ -51,7 +51,7 @@ Date: Wed, 19 Apr 2023 20:47:56 GMT
 Connection: close
 Transfer-Encoding: chunked
 
-{"rates":{"AED":{"nominal":1,"base_currency":"RUR","target_currency":"AED","rate_target_to_base":22.2335},"AMD":{"nominal":100,"base_currency":"RUR","target_currency":"AMD","rate_target_to_base":21.0635}}}
+{"rates":{"AED":{"nominal":1,"base_currency":"RUB","target_currency":"AED","rate_target_to_base":22.2335},"AMD":{"nominal":100,"base_currency":"RUB","target_currency":"AMD","rate_target_to_base":21.0635}}}
 ```
 
 # Architecture

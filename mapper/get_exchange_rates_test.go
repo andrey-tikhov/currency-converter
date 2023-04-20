@@ -51,13 +51,13 @@ func TestGetCBRateResponseToBytes(t *testing.T) {
 		Rates: map[string]entity.Rate{
 			"USD": {
 				Nominal:          100,
-				BaseCurrency:     "RUR",
+				BaseCurrency:     "RUB",
 				TargetCurrency:   "USD",
 				RateTargetToBase: 123.56,
 			},
 			"JPY": {
 				Nominal:          10,
-				BaseCurrency:     "RUR",
+				BaseCurrency:     "RUB",
 				TargetCurrency:   "JPY",
 				RateTargetToBase: 987.65,
 			},
@@ -77,7 +77,7 @@ func TestGetCBRateResponseToBytes(t *testing.T) {
 			args: args{
 				r: response,
 			},
-			want:      []byte(`{"rates":{"USD":{"nominal":100,"base_currency":"RUR","target_currency":"USD","rate_target_to_base":123.56},"JPY":{"nominal":10,"base_currency":"RUR","target_currency":"JPY","rate_target_to_base":987.65}}}`),
+			want:      []byte(`{"rates":{"USD":{"nominal":100,"base_currency":"RUB","target_currency":"USD","rate_target_to_base":123.56},"JPY":{"nominal":10,"base_currency":"RUB","target_currency":"JPY","rate_target_to_base":987.65}}}`),
 			assertion: assert.NoError,
 		},
 	}

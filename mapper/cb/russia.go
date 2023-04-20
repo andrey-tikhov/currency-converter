@@ -32,15 +32,15 @@ func RussiaCBRResponseToRates(body []byte) (map[string]entity.Rate, error) {
 		}
 		m[r.CurrencyID] = entity.Rate{
 			Nominal:          r.Nominal,
-			BaseCurrency:     "RUR",
+			BaseCurrency:     "RUB",
 			TargetCurrency:   r.CurrencyID,
 			RateTargetToBase: ratio,
 		}
 	}
-	m["RUR"] = entity.Rate{
+	m["RUB"] = entity.Rate{
 		Nominal:          1,
-		BaseCurrency:     "RUR",
-		TargetCurrency:   "RUR",
+		BaseCurrency:     "RUB",
+		TargetCurrency:   "RUB",
 		RateTargetToBase: 1,
 	}
 	return m, nil

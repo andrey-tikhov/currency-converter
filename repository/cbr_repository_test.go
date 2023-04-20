@@ -40,13 +40,13 @@ func Test_cbr_GetCBRates(t *testing.T) {
 		Rates: map[string]entity.Rate{
 			"USD": {
 				Nominal:          100,
-				BaseCurrency:     "RUR",
+				BaseCurrency:     "RUB",
 				TargetCurrency:   "USD",
 				RateTargetToBase: 123.56,
 			},
 			"JPY": {
 				Nominal:          10,
-				BaseCurrency:     "RUR",
+				BaseCurrency:     "RUB",
 				TargetCurrency:   "JPY",
 				RateTargetToBase: 987.65,
 			},
@@ -366,11 +366,11 @@ func Test_cbr_reloadCache(t *testing.T) {
 		DateLoaded: "1970-01-01",
 		TimeZone:   thTZ,
 		Rates: map[string]entity.Rate{
-			"RUR": {
+			"RUB": {
 				Nominal:          1,
 				RateTargetToBase: 1,
-				BaseCurrency:     "RUR",
-				TargetCurrency:   "RUR",
+				BaseCurrency:     "RUB",
+				TargetCurrency:   "RUB",
 			},
 			"GBP": {
 				Nominal:          1,
@@ -392,11 +392,11 @@ func Test_cbr_reloadCache(t *testing.T) {
 		DateLoaded: "1973-03-03",
 		TimeZone:   thTZ,
 		Rates: map[string]entity.Rate{
-			"RUR": {
+			"RUB": {
 				Nominal:          1,
 				RateTargetToBase: 1,
-				BaseCurrency:     "RUR",
-				TargetCurrency:   "RUR",
+				BaseCurrency:     "RUB",
+				TargetCurrency:   "RUB",
 			},
 			"GBP": {
 				Nominal:          1,
@@ -599,22 +599,22 @@ func Test_cbr_GetExchangeRate(t *testing.T) {
 		DateLoaded: "1970-01-01",
 		TimeZone:   ruTZ,
 		Rates: map[string]entity.Rate{
-			"RUR": {
+			"RUB": {
 				Nominal:          1,
 				RateTargetToBase: 1,
-				BaseCurrency:     "RUR",
-				TargetCurrency:   "RUR",
+				BaseCurrency:     "RUB",
+				TargetCurrency:   "RUB",
 			},
 			"GBP": {
 				Nominal:          1,
 				RateTargetToBase: 42.5171,
-				BaseCurrency:     "RUR",
+				BaseCurrency:     "RUB",
 				TargetCurrency:   "GBP",
 			},
 			"USD": {
 				Nominal:          1,
 				RateTargetToBase: 34.28235,
-				BaseCurrency:     "RUR",
+				BaseCurrency:     "RUB",
 				TargetCurrency:   "USD",
 			},
 		},

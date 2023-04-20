@@ -83,7 +83,6 @@ func TestCacheUsage(t *testing.T) {
 			mux.HandleFunc("/get_exchange_rates", h.GetCBRates)
 			mux.HandleFunc("/convert", h.ConvertCurrency)
 			mux.HandleFunc("/hello", h.Hello)
-			//http.ListenAndServe(":8000", mux)
 		}
 		app := fx.New(
 			fx.Provide(NewTestRUCBGateway),

@@ -5,6 +5,7 @@ import (
 	"errors"
 	"github.com/golang/mock/gomock"
 	"github.com/stretchr/testify/assert"
+	"go.uber.org/zap"
 	"my_go/entity"
 	"my_go/mapper"
 	cb_repositorymock "my_go/mocks/controller/cb_repository"
@@ -67,7 +68,7 @@ func Test_handler_GetCBRates(t *testing.T) {
 					Rates: map[string]entity.Rate{
 						"USD": {
 							Nominal:          100,
-							BaseCurrency:     "RUR",
+							BaseCurrency:     "RUB",
 							TargetCurrency:   "USD",
 							RateTargetToBase: 123.56,
 						},
@@ -76,7 +77,7 @@ func Test_handler_GetCBRates(t *testing.T) {
 				err: nil,
 			},
 			expectedStatusCode: http.StatusOK,
-			expectedResponse:   `{"rates":{"USD":{"nominal":100,"base_currency":"RUR","target_currency":"USD","rate_target_to_base":123.56}}}`,
+			expectedResponse:   `{"rates":{"USD":{"nominal":100,"base_currency":"RUB","target_currency":"USD","rate_target_to_base":123.56}}}`,
 		},
 		{
 			name: "wrong request method",
@@ -139,6 +140,7 @@ func Test_handler_GetCBRates(t *testing.T) {
 			}
 			conversionCtrlMock := conversionmock.NewMockController(ctrl)
 			h := &handler{
+				logger:         zap.NewNop(),
 				repositoryCtrl: repositoryCtrlMock,
 				conversionCtrl: conversionCtrlMock,
 			}
@@ -176,7 +178,7 @@ func Test_handler_ConvertCurrency(t *testing.T) {
 			name: "Happy path",
 			args: args{
 				method: "POST",
-				body:   []byte(`{"country":"russia","source_currency":"RUR","target_currency":"USD","amount":100}`),
+				body:   []byte(`{"country":"russia","source_currency":"RUB","target_currency":"USD","amount":100}`),
 				url:    "/convert",
 			},
 			mockConversionController: &mockConversionController{
@@ -191,7 +193,7 @@ func Test_handler_ConvertCurrency(t *testing.T) {
 			name: "wrong request method",
 			args: args{
 				method: "GET",
-				body:   []byte(`{"country":"russia","source_currency":"RUR","target_currency":"USD","amount":100}`),
+				body:   []byte(`{"country":"russia","source_currency":"RUB","target_currency":"USD","amount":100}`),
 				url:    "/convert",
 			},
 			expectedStatusCode: http.StatusMethodNotAllowed,
@@ -221,7 +223,7 @@ func Test_handler_ConvertCurrency(t *testing.T) {
 			name: "controller fails",
 			args: args{
 				method: "POST",
-				body:   []byte(`{"country":"russia","source_currency":"RUR","target_currency":"USD","amount":100}`),
+				body:   []byte(`{"country":"russia","source_currency":"RUB","target_currency":"USD","amount":100}`),
 				url:    "/convert",
 			},
 			mockConversionController: &mockConversionController{
@@ -249,6 +251,7 @@ func Test_handler_ConvertCurrency(t *testing.T) {
 					Return(tt.mockConversionController.res, tt.mockConversionController.err)
 			}
 			h := &handler{
+				logger:         zap.NewNop(),
 				repositoryCtrl: repositoryCtrlMock,
 				conversionCtrl: conversionCtrlMock,
 			}

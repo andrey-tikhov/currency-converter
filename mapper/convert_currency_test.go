@@ -146,7 +146,7 @@ func TestCBRRatesAndGetExchangeRateRequestToGetExchangeRateResponse(t *testing.T
 }
 
 func TestBodyToConvertCurrencyRequest(t *testing.T) {
-	correctJSON := []byte(`{"country":"russia","source_currency":"RUR","target_currency":"USD","amount":100}`)
+	correctJSON := []byte(`{"country":"russia","source_currency":"RUB","target_currency":"USD","amount":100}`)
 	type args struct {
 		body []byte
 	}
@@ -163,7 +163,7 @@ func TestBodyToConvertCurrencyRequest(t *testing.T) {
 			},
 			want: &entity.ConvertCurrencyRequest{
 				Country:        utils.ToPointer("russia"),
-				SourceCurrency: "RUR",
+				SourceCurrency: "RUB",
 				TargetCurrency: "USD",
 				Amount:         100,
 			},
@@ -289,7 +289,7 @@ func TestConvertCurrencyRequestToGetExchangeRateRequest(t *testing.T) {
 func TestGetCBRRateToConvertCurrencyResponse(t *testing.T) {
 	rate := entity.Rate{
 		Nominal:          100,
-		BaseCurrency:     "RUR",
+		BaseCurrency:     "RUB",
 		TargetCurrency:   "USD",
 		RateTargetToBase: 123.56,
 	}
